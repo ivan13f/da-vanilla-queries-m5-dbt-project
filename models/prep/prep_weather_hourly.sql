@@ -24,5 +24,7 @@ add_more_features AS (
         END AS day_part
     FROM add_features
 )
-SELECT *
-FROM add_more_features
+SELECT amf.*, wc.weather_condition
+FROM add_more_features as amf
+JOIN {{ref('weather_codes')}} as wc
+ON wc.code = amf.condition_code
