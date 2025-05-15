@@ -30,7 +30,4 @@ WITH departures AS (
 SELECT pa.name, pa.city, pa.country, ts.*
 FROM total_stats ts
 JOIN {{ref('prep_airports')}} pa
-ON ts.airport_code = pa.faa;
-
-SELECT *
-FROM prep_flights
+ON ts.airport_code = pa.faa
